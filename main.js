@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
+const config = require('./config.js');
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 
@@ -8,7 +8,7 @@ bot.commands = new Discord.Collection();
 //when bot ready
 bot.on('ready', async() => {
     console.log(`${bot.user.username} is ready for action!`);
-    bot.user.setActivity("for \'!triggers\' command", { type: 'WATCHING' });
+    bot.user.setActivity("for \'!triggers\' commands", { type: 'WATCHING' });
 });
 
 //load commands
@@ -42,6 +42,6 @@ bot.on('message', async message => {
 
     let msg = bot.commands.get(cmd.slice(prefix.length));
     if (msg) msg.run(bot, message, args);
-}); 
+});
 
-bot.login(config.token);
+bot.login(config.bot_token);

@@ -1,10 +1,11 @@
 const discord = require('discord.js');
 const axios = require('axios');
+const config = require('../config.js')
 
 module.exports.run = async (bot, message, args) => {
 
     let baseURL = 'https://cloud.iexapis.com/stable/stock/';
-    let token = '';
+    let token = config.stock_token;
 
         if (!args.length) {
             return message.channel.send(`You didn't provide a stock symbol, ${message.author}!`);
@@ -12,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         else if (args.length) {
 
             let getCompany = async () => {
-                let stockCompany = await axios.get(baseURL + args + '/batch?types=company,quote,book,logo,stats,news,chart&range=1m&last=1' + token); //company data
+                let stockCompany = await axios.get(baseURL + args + '/batch?types=company,quote,book,logo,stats,news,chart&range=1m&last=1&token=' + token); //company data
                 let companyInfo = stockCompany.data;
 
                 return {
