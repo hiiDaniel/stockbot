@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
                 fields:[
                     {
                     name: "Price",
-                    value:  `$ ${cryptoAtt.market_data.price_usd}`|| "N/A",
+                    value:  `$ ${cryptoAtt.market_data.price_usd.toFixed(6).toLocaleString()}`|| "N/A",
                     inline: true
                     },
                     {
