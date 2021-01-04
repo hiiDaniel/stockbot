@@ -32,8 +32,13 @@ module.exports.run = async (bot, message, args) => {
                 inline: true
                 },
                 {
-                name: "Compliment",
+                name: "compliment",
                 value: "!compliment @mention",
+                inline: true
+                },
+                {
+                name: "health",
+                value: "!health",
                 inline: true
                 }
                 ]
