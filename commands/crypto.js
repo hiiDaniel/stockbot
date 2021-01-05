@@ -22,14 +22,19 @@ module.exports.run = async (bot, message, args) => {
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
 
+        function formatCourseDate(date) {
+            const dateObj = new Date(date + 'T00:00:00');
+            return new Intl.DateTimeFormat('en-US').format(dateObj);
+          }
+
         message.channel.send( {
             embed: {
                 color: 0xebc11a ,
-                title: cryptoAtt.name + ' (' + cryptoAtt.symbol + ')',
+                title: cryptoAtt.name + ` (${cryptoAtt.symbol})`,
                 fields:[
                     {
                     name: "Price",
-                    value:  `$ ${cryptoAtt.market_data.price_usd.toFixed(6).toLocaleString()}`|| "N/A",
+                    value:  `$${cryptoAtt.market_data.price_usd.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
                     inline: true
                     },
                     {
@@ -39,9 +44,49 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "24h Change",
-                    value:  `${cryptoAtt.market_data.percent_change_usd_last_24_hours.toFixed(2)}%`|| "N/A",
+                    value: `${(cryptoAtt.market_data.percent_change_usd_last_24_hours).toFixed(2)}%`,
                     inline: true
-                    }
+                    },
+                    {
+                    name: "24h Low",
+                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.low.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
+                    inline: true
+                    },
+                    {
+                    name: "\u200B",
+                    value: "\u200B",
+                    inline: true
+                    },
+                    {
+                    name: "24h High",
+                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.high.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
+                    inline: true
+                    },
+                    {
+                    name: "Market Dominance",
+                    value: `${cryptoAtt.marketcap.marketcap_dominance_percent.toFixed(2)}%`,
+                    inline: true
+                    },
+                    {
+                    name: "\u200B",
+                    value: "\u200B",
+                    inline: true
+                    },
+                    {
+                    name: "Annual Inflation",
+                    value: `${cryptoAtt.supply.annual_inflation_percent.toFixed(2)}%`,
+                    inline: true
+                    },
+                    {
+                    name: "ROI Wk / Mo / Yr",
+                    value: `${cryptoAtt.roi_data.percent_change_last_1_week.toFixed(2)}% / ${cryptoAtt.roi_data.percent_change_last_1_month.toFixed(2)}% / ${cryptoAtt.roi_data.percent_change_last_1_year.toFixed(2)}%`,
+                    inline: false
+                    },
+                    {
+                    name: "All Time High",
+                    value: `$${cryptoAtt.all_time_high.price.toLocaleString('en-US',{minimumFractionDigits: 4})} on ${formatCourseDate(cryptoAtt.all_time_high.at)} which is -${(cryptoAtt.all_time_high.percent_down).toFixed(2)}% from today`,
+                    inline: false
+                    },
                 ],
                 timestamp: new Date()
 
@@ -60,3 +105,5 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
     name: "crypto"
 };
+
+// "\u200B"
