@@ -75,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "Annual Inflation",
-                    value: `${cryptoAtt.supply.annual_inflation_percent.toFixed(2)}%`,
+                    value: `${cryptoAtt.supply.annual_inflation_percent.toFixed(2)}%`|| "n/a",
                     inline: true
                     },
                     {
