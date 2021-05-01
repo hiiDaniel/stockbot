@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
         function formatCourseDate(date) {
             const dateObj = new Date(date + 'T00:00:00');
-            return new Intl.DateTimeFormat('en-US').format(dateObj);
+            return console.log(new Intl.DateTimeFormat('en-US').format(dateObj));
           }
 
         message.channel.send( {
