@@ -22,9 +22,9 @@ module.exports.run = async (bot, message, args) => {
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
 
-        function formatCourseDate(formatdate) {
-            let formatdate = moment(cryptoAtt.all_time_high.at).calendar();
-            return console.log(formatdate);
+        function formatCourseDate() {
+            let d = moment(cryptoAtt.all_time_high.at).calendar();
+            return console.log(d);
         }
 
         message.channel.send( {
