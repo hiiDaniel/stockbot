@@ -88,7 +88,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "ROI Wk / Mo / Yr",
-                    value: `${cryptoAtt.roi_data.percent_change_last_1_week.toFixed(2)}% / ${cryptoAtt.roi_data.percent_change_last_1_month.toFixed(2)}% / ${cryptoAtt.roi_data.percent_change_last_1_year.toFixed(2)}%`,
+                    value: ifNull(cryptoAtt.roi_data.percent_change_last_1_week) + " / " + ifNull(cryptoAtt.roi_data.percent_change_last_1_month) + " / " + ifNull(cryptoAtt.roi_data.percent_change_last_1_year),
                     inline: false
                     },
                     {
