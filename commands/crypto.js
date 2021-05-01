@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
         function formatCourseDate() {
             let d = moment(cryptoAtt.all_time_high.at).calendar();
-            return console.log(d);
+            return d;
         }
 
         message.channel.send( {
@@ -85,7 +85,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "All Time High",
-                    value: `$${cryptoAtt.all_time_high.price.toLocaleString('en-US',{minimumFractionDigits: 4})} on ${formatCourseDate(cryptoAtt.all_time_high.at)} which is -${(cryptoAtt.all_time_high.percent_down).toFixed(2)}% from today`,
+                    value: formatCourseDate(),
                     inline: false
                     },
                 ],
