@@ -22,10 +22,10 @@ module.exports.run = async (bot, message, args) => {
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
 
-        function formatCourseDate(date) {
-            const dateObj = new Date(date + 'T00:00:00');
-            return console.log(new Intl.DateTimeFormat('en-US').format(dateObj));
-          }
+        function formatCourseDate(d) {
+            let d = moment(cryptoAtt.all_time_high.at).calendar();
+            return console.log(d);
+        }
 
         message.channel.send( {
             embed: {
