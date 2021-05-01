@@ -28,6 +28,14 @@ module.exports.run = async (bot, message, args) => {
             return d;
         }
 
+        function ifNull(n) {
+            let i = n;
+            if (i == null){
+                return "no value";
+            }
+            return i.toFixed(2);
+        }
+
         message.channel.send( {
             embed: {
                 color: 0xebc11a ,
@@ -75,7 +83,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "Annual Inflation",
-                    value: `${cryptoAtt.supply.annual_inflation_percent.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}%`,
+                    value: ifNull(cryptoAtt.supply.annual_inflation_percent),
                     inline: true
                     },
                     {
