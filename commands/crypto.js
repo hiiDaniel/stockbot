@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "24h Change",
-                    value: `${(cryptoAtt.market_data.percent_change_usd_last_24_hours).toFixed(2)}%`,
+                    value: ifNull(cryptoAtt.market_data.percent_change_usd_last_24_hours) + "%",
                     inline: true
                     },
                     {
@@ -73,7 +73,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "Market Dominance",
-                    value: `${cryptoAtt.marketcap.marketcap_dominance_percent.toFixed(2)}%`,
+                    value: ifNull(cryptoAtt.marketcap.marketcap_dominance_percent) + "%",
                     inline: true
                     },
                     {
