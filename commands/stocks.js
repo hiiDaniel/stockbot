@@ -21,8 +21,16 @@ module.exports.run = async (bot, message, args) => {
                 };
             }
 
+            function newsLinkSummary(n) {
+                let i = n;
+                if (i == null || i == 'undefined'){
+                    return "undefined";
+                }
+                return i.substring(0, 200);
+            }
+
             let stockInfo = await getCompany();
-            let newsLink = stockInfo.companyInfo.news[0].summary.substring(0, 200) + "...";
+            let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary) + "...";
 
             message.channel.send( {
                 embed: {
