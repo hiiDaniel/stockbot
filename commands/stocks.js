@@ -33,6 +33,8 @@ module.exports.run = async (bot, message, args) => {
             let stockInfo = await getCompany();
             let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary) + "...";
 
+            console.log(stockInfo.companyInfo.news[0].summary);
+
             message.channel.send( {
                 embed: {
                     color: 0x0de5de,
