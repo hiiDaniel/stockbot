@@ -23,12 +23,11 @@ module.exports.run = async (bot, message, args) => {
 
             function newsLinkSummary(n) {
 
-                console.log(newsLinkSummary(stockInfo.companyInfo.news[0].summary) + "...");
-                //let i = n;
-                //if (i == null || i == ""){
-                    //return "no summary available";
-                //}
-                //return i.substring(0, 200);
+                let i = n;
+                if (i == null || i == ""){
+                    return "no summary available";
+                }
+                return i.substring(0, 200);
             }
 
             let stockInfo = await getCompany();
