@@ -23,17 +23,15 @@ module.exports.run = async (bot, message, args) => {
 
             function newsLinkSummary(n) {
 
-                let i = n;
-                if (i == null || i == undefined){
+                let i = stockInfo.companyInfo.news;
+                if (stockInfo.companyInfo.news.length > 0){
                     return "no summary available";
                 }
-                return i.substring(0, 200) + "...";
+                return i[0].summary.substring(0, 200) + "...";
             }
 
             let stockInfo = await getCompany();
             let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary);
-
-            console.log(newsLinkSummary);
 
             message.channel.send( {
                 embed: {
