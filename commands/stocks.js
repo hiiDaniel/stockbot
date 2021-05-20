@@ -24,14 +24,16 @@ module.exports.run = async (bot, message, args) => {
             function newsLinkSummary(n) {
 
                 let i = n;
-                if (i == null || i == ""){
+                if (i == null || i == undefined){
                     return "no summary available";
                 }
                 return i.substring(0, 200);
             }
 
             let stockInfo = await getCompany();
-            let newsLink = console.log(stockInfo.companyInfo.news[0].summary); //newsLinkSummary(stockInfo.companyInfo.news[0].summary) + "...";
+            let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary) + "...";
+
+            console.log(newsLinkSummary);
 
             message.channel.send( {
                 embed: {
