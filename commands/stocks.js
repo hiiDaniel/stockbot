@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
             let stockInfo = await getCompany();
             let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary);
 
-            console.log(newsLinkSummary.values());
+            console.log(newsLinkSummary);
 
             message.channel.send( {
                 embed: {
