@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
 
             function newsLinkSummary(n) {
                 let i = n;
-                if (i == null || i == 'undefined'){
+                if (i == null || i == ""){
                     return "undefined";
                 }
                 return i.substring(0, 200);
