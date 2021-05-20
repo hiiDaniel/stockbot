@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
             let stockInfo = await getCompany();
             let newsLink = newsLinkSummary(stockInfo.companyInfo.news[0].summary);
 
-            console.log(newsLinkSummary);
+            console.log(newsLinkSummary());
 
             message.channel.send( {
                 embed: {
@@ -167,7 +167,7 @@ module.exports.run = async (bot, message, args) => {
                         },
                         {
                         name: stockInfo.companyInfo.news[0].headline || "N/A",
-                        value: `${newsLink} [read more](${stockInfo.companyInfo.news[0].url})`,
+                        value: `${newsLink}[read more](${stockInfo.companyInfo.news[0].url})`,
                         inline: false
                         }
                     ],
