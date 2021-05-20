@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             function newsLinkSummary(n) {
 
                 let i = stockInfo.companyInfo.news;
-                if (stockInfo.companyInfo.news.length > 0){
+                if (i.length > 0){
                     return "no summary available";
                 }
                 return i[0].summary.substring(0, 200) + "...";
