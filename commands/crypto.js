@@ -15,13 +15,9 @@ module.exports.run = async (bot, message, args) => {
             let url = await axios.get(baseURL + args + '/metrics'); //crypto data
             let cryptoInfo = url.data;
 
-            try {
-                return {
-                    cryptoInfo
-                }
-            } catch(error){
-                console.log("ALL ERRORS WITH A CATCH");
-            }            
+            return {
+                cryptoInfo
+            };            
         }
 
         let cryptoData = await getData();
