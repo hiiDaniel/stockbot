@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
             return {
                 cryptoInfo
-            };            
+            };
         }
 
         getData.catch((error) => {
