@@ -10,7 +10,8 @@ module.exports.run = async (bot, message, args) => {
     
 
     if (!args.length) {
-        return message.channel.send(`You didn't provide a crypto symbol, ${message.author}!`);
+        return message.channel.send(`You didn't provide a crypto symbol, ${message.author}!`),
+        console.log("NO USER INPUT");
     }
     else if (cryptoInfo.status.error_message == "Not Found"){
         console.log("OH NO!");
