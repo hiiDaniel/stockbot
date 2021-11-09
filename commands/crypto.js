@@ -19,7 +19,10 @@ module.exports.run = async (bot, message, args) => {
             if (cryptoStatus.error_message == "Not Found") {
                 return "Crypto not found or typed incorrectly. Please try again."
             }
-                return cryptoInfo;      
+
+            return {
+                cryptoInfo
+            };            
         }
 
         let cryptoData = await getData();
