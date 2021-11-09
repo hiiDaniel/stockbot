@@ -8,7 +8,7 @@ const moment = require("moment");
 
 module.exports.run = async (args) => {
     try {
-        const response = await axios.get(`https://data.messari.io/api/v1/assets/${args}/metrics`);
+        const response = await axios.get(`https://data.messari.io/api/v1/assets/${JSON.stringify( args )}/metrics`);
         console.log(response);
     }
     catch (error) {
