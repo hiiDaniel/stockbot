@@ -5,27 +5,25 @@ const moment = require("moment");
 module.exports.run = async (bot, message, args) => {
 
     let baseURL = 'https://data.messari.io/api/v1/assets/';
+    let url = await axios.get(baseURL + args + '/metrics'); //crypto data
+    let cryptoInfo = url.data;
+    
 
     if (!args.length) {
         return message.channel.send(`You didn't provide a crypto symbol, ${message.author}!`);
     }
+    else if (cryptoInfo.status.error_message == "Not Found"){
+        console.log("OH NO!");
+    }
+
     else if (args.length) {
 
         let getData = async () => {
-            let url = await axios.get(baseURL + args + '/metrics'); //crypto data
-            let cryptoInfo = url.data;
-
-            return {
+        return {
                 cryptoInfo
             };
-        }
-
-        getData.catch((error) => {
-            console.log("LOTS OF ERRORS");
-        });
-
-       
-
+        }  
+        
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
              
@@ -114,7 +112,7 @@ module.exports.run = async (bot, message, args) => {
                 await getChange.react('📉');
             }
         });
-    }
+    };
 
 };
 
