@@ -16,9 +16,9 @@ module.exports.run = async (bot, message, args) => {
             let cryptoInfo = url.data;
 
             try {
-                
-                cryptoInfo
-                
+                return {
+                    cryptoInfo
+                }
             } catch(error){
                 console.log("ALL ERRORS WITH A CATCH");
             }            
