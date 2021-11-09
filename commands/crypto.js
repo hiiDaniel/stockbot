@@ -1,4 +1,4 @@
-const discord = require('discord.js-commando');
+const discord = require('discord.js');
 const axios = require('axios');
 const moment = require("moment");
 
