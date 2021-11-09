@@ -13,16 +13,18 @@ module.exports.run = async (bot, message, args) => {
 
         let getData = async () => {
             let url = await axios.get(baseURL + args + '/metrics'); //crypto data
+            let cryptoStatus = url.status;
             let cryptoInfo = url.data;
 
-            return {
-                cryptoInfo
-            };            
+            if (cryptoStatus.error_message == "Not Found") {
+                return "Crypto not found or typed incorrectly. Please try again."
+            }
+                return cryptoInfo;      
         }
 
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
-        let cryptoStatus = cryptoData.cryptoInfo.status;
+             
 
         function formatCourseDate() {
             let d = moment(cryptoAtt.all_time_high.at).calendar();
