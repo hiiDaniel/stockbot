@@ -20,6 +20,12 @@ module.exports.run = async (bot, message, args) => {
             };            
         }
 
+        getData.catch((error) => {
+            console.log("LOTS OF ERRORS");
+        });
+
+       
+
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
              
