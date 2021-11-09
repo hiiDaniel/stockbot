@@ -11,9 +11,10 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args.length) {
         return message.channel.send(`You didn't provide a crypto symbol, ${message.author}!`),
-        console.log("NO USER INPUT");
+        console.log("User did not provide a crypto token");
     }
-    else if (cryptoInfo.status.error_message == "Not Found"){
+    else if (response.status = 404){
+        return message.channel.send("No Valid crypto"),
         console.log("OH NO!");
     }
 
