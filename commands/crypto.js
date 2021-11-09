@@ -7,13 +7,14 @@ module.exports.run = async (bot, message, args) => {
     let baseURL = 'https://data.messari.io/api/v1/assets/';
     let url = await axios.get(baseURL + args + '/metrics'); //crypto data
     let cryptoInfo = url.data;
+    let urlValid = require(cryptoInfo);
     
 
     if (!args.length) {
         return message.channel.send(`You didn't provide a crypto symbol, ${message.author}!`),
         console.log("User did not provide a crypto token");
     }
-    else if (response.status = 404){
+    else if (response.status != 404){
         return message.channel.send("No Valid crypto"),
         console.log("OH NO!");
     }
