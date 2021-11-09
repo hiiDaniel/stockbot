@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const axios = require('axios');
 const moment = require("moment");
 
-module.exports.run = async (message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     let baseURL = 'https://data.messari.io/api/v1/assets/';
     let url = await axios.get(baseURL + args + '/metrics'); //crypto data
@@ -20,14 +20,9 @@ module.exports.run = async (message, args) => {
     else if (args.length) {
 
         let getData = async () => {
-            try {
-                return {
-                    cryptoInfo
-                }
-            }
-            catch (error) {
-                console.log("UH OH");
-            }
+        return {
+                cryptoInfo
+            };
         }  
         
         let cryptoData = await getData();
