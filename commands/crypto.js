@@ -20,9 +20,14 @@ module.exports.run = async (bot, message, args) => {
     else if (args.length) {
 
         let getData = async () => {
-        return {
-                cryptoInfo
-            };
+            try {
+                return {
+                    cryptoInfo
+                }
+            }
+            catch (error) {
+                console.log("UH OH");
+            }
         }  
         
         let cryptoData = await getData();
