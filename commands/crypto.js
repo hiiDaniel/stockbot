@@ -9,7 +9,7 @@ module.exports = {
 }
 
 
-run = async (message, args) => {
+run = async (bot, message, args) => {
     axios.get('https://data.messari.io/api/v1/assets/')
         .then((res) => {
             console.log('RES:', res)
