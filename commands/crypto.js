@@ -16,13 +16,10 @@ module.exports.run = async (bot, message, args) => {
             let cryptoStatus = url.status;
             let cryptoInfo = url.data;
 
-            if (cryptoStatus.error_message == "Not Found") {
-                return "Crypto not found or typed incorrectly. Please try again.";
-            } 
+            if (cryptoStatus.error_message) return console.log("Crypto not found or typed incorrectly. Please try again.");
 
             return {
-                cryptoInfo,
-                console.log(cryptoStatus.error_message)
+                cryptoInfo
             };            
         }
 
