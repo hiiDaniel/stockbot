@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
                 fields:[
                     {
                     name: "Price",
-                    value:  `$${cryptoAtt.market_data.price_usd.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
+                    value:  `$${cryptoAtt.market_data.price_usd.toLocaleString('en-US',{minimumFractionDigits: 5})}`,
                     inline: true
                     },
                     {
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "24h Low",
-                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.low.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
+                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.low.toLocaleString('en-US',{minimumFractionDigits: 5})}`,
                     inline: true
                     },
                     {
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "24h High",
-                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.high.toLocaleString('en-US',{minimumFractionDigits: 4})}`,
+                    value: `$${cryptoAtt.market_data.ohlcv_last_24_hour.high.toLocaleString('en-US',{minimumFractionDigits: 5})}`,
                     inline: true
                     },
                     {
@@ -93,7 +93,8 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "All Time High",
-                    value: formatCourseDate(),
+                    value: `$${cryptoAtt.all_time_high.price.toLocaleString('en-US',{minimumFractionDigits: 5})}` + " " + formatCourseDate(), //$.00043 XX/XX/XXXX
+
                     inline: false
                     },
                 ],
