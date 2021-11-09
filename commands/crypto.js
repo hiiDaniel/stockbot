@@ -24,16 +24,6 @@ module.exports.run = async (bot, message, args) => {
         let cryptoAtt = cryptoData.cryptoInfo.data;
         let cryptoStatus = cryptoData.cryptoInfo.status;
 
-        function cryptoNotFound(c) {
-            let c = cryptoStatus.error_message;
-            
-            if (c == "Not Found") {
-                return "This crypto is not supported or was an invalid entry. Please try again."
-            }
-            return cryptoInfo;
-        }
-
-
         function formatCourseDate() {
             let d = moment(cryptoAtt.all_time_high.at).calendar();
             return d;
