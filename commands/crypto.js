@@ -22,16 +22,15 @@ module.exports.run = async (bot, message, args) => {
 
         let cryptoData = await getData();
         let cryptoAtt = cryptoData.cryptoInfo.data;
-        let cryptoStatus = cryptoData.cryptoInfo.status.error_message;
+        let cryptoStatus = cryptoData.cryptoInfo.status;
 
         function cryptoNotFound(c) {
-            let c = cryptoStatus;
+            let c = cryptoStatus.error_message;
             
             if (c == "Not Found") {
                 return "This crypto is not supported or was an invalid entry. Please try again."
             }
             return cryptoInfo;
-            console.log(cryptoNotFound);
         }
 
 
