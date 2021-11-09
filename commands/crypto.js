@@ -2,15 +2,10 @@ const discord = require('discord.js');
 const axios = require('axios');
 const moment = require("moment");
 
-module.exports = class cryptoCommand extends discord.Command {
-    constructor(client){
-        super (client, {
-            name: 'crypto',
-            group: 'commands',
-            memberName: 'bot',
-            description: 'Displays crypto information',
-        })
-    }
+module.exports = {
+    name:'crypto',
+    category: 'commands',
+    description: 'Displays crypto information',
 }
 
 
@@ -24,6 +19,6 @@ run = async (message, args) => {
         })
 }
 
-module.exports.help = {
-    name: "crypto"
-};
+//module.exports.help = {
+//    name: "crypto"
+//};
