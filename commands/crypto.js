@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args) => {
                     },
                     {
                     name: "All Time High",
-                    value: formatCourseDate() + " and was " + `$${cryptoAtt.all_time_high.price.toLocaleString('en-US',{minimumFractionDigits: 5})}` + ` (${cryptoAtt.all_time_high.percent_down}%)`, //XX/XX/XXXX and was $0.00002 (44%)
+                    value: formatCourseDate() + " and was " + `$${cryptoAtt.all_time_high.price.toLocaleString('en-US',{minimumFractionDigits: 5})}` + ` (${cryptoAtt.all_time_high.percent_down.toLocaleString('en-US',{minimumFractionDigits: 2})}%)`, //XX/XX/XXXX and was $0.00002 (44%)
                     inline: false
                     },
                 ],
