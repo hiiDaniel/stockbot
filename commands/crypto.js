@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
             let url = await axios.get(baseURL + args + '/metrics'); //crypto data
             let cryptoInfo = url.data;
 
-            if (cryptoInfo.status.error_message) return console.log("Crypto not found or typed incorrectly. Please try again.");
+            if (!cryptoInfo) return console.log("Crypto not found or typed incorrectly. Please try again.");
 
             return {
                 cryptoInfo
