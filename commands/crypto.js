@@ -314,6 +314,6 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-  name: "c",
-  //name: "crypto",
+  //name: "c",
+  name: "crypto",
 };
