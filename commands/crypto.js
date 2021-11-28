@@ -156,13 +156,13 @@ module.exports.run = async (bot, message, args) => {
 
         //add function for when there isn't enough data to create an embed
 
-        if (!coin_data.symbol) {
+        if (!coin_data.symbol || !coin_data.name || !market_data.price_usd) {
           console.log(
             `==> Error: '${args}' doesn't have a symbol or enough data to create an embed. Invalidating request.`
           );
           message.channel
             .send(
-              `${message.author}, **'${args}'** appears in the API but doesn't have enough information to create an embed. Market data is untracked.`
+              `${message.author}, **'${args}'** appears in the API but doesn't have enough information to create an embed. Market data is untracked. \n Go to ${apiURL} to see the return API.`
             )
             .then((msg) => {
               msg.react("🛠");
@@ -314,6 +314,6 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-  //name: "c",
-  name: "crypto",
+  name: "c",
+  //name: "crypto",
 };
