@@ -117,7 +117,7 @@ module.exports.run = async (bot, message, args) => {
             let p = -t; //turns neg to pos
 
             let uArrw = "<:up_tick:908194638807044106>";
-            let dArrw = "<:down_tick:908194638769319996>";
+            let dArrw = "<:down_tick:935603124759044106>";
 
             switch (c) {
               case (c = 1):
